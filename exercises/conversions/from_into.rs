@@ -39,13 +39,51 @@ impl Default for Person {
 //    `usize` as the age.
 // If while parsing the age, something goes wrong, then return the default of
 // Person Otherwise, then return an instantiated Person object with the results
+// 您的任务是完成这个实现，以便使代码行`let p = Person::from("Mark,20")`能够编译通过。请注意，您需要解析年龄组件为`usize`，类似于`"4".parse::<usize>()`。对此的处理需要得当。
 
-// I AM NOT DONE
+// 步骤：
+// 1. 如果提供的字符串长度为0，则返回默认的Person。
+// 2. 根据其中的逗号分割提供的字符串。
+// 3. 从分割后的操作中提取第一个元素，并将其用作姓名。
+// 4. 如果姓名为空，则返回默认的Person。
+// 5. 从分割操作中提取另一个元素，并将其解析为`usize`类型，作为年龄。
+// 如果在解析年龄时出现问题，则返回默认的Person。否则，使用这些结果创建一个新的Person对象。
 
+
+// impl From<&str> for Person {
+//     fn from(s: &str) -> Person {
+//     }
+// }
 impl From<&str> for Person {
     fn from(s: &str) -> Person {
+        // 1. 如果提供的字符串长度为0，则返回默认的Person
+        if s.is_empty() {
+            return Person::default();
+        }
+
+        // 2. 用逗号分隔字符串
+        let parts: Vec<&str> = s.split(',').collect();
+
+        // 3. 如果分割后的部分不是两个，或者姓名为空，或者年龄解析失败，则返回默认的Person
+        if parts.len() != 2 {
+            return Person::default();
+        }
+
+        let name = parts[0].to_string();
+        let age = parts[1].parse::<usize>();
+
+        if name.is_empty() || age.is_err() {
+            return Person::default();
+        }
+
+        // 返回一个新的Person实例
+        Person {
+            name,
+            age: age.unwrap(),
+        }
     }
 }
+
 
 fn main() {
     // Use the `from` function
