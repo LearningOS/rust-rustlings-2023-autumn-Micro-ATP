@@ -19,19 +19,8 @@
 // - The output element is going to be a Vector of strings.
 //
 // No hints this time!
-// 让我们以函数的形式构建一个小机器。 作为输入，我们将
-// 给出字符串和命令的列表。 这些命令决定执行什么操作
-// 将应用于字符串。 它可以是：
-// - 大写字符串
-// - 修剪字符串
-// - 将“bar”附加到字符串指定的次数
-// 其具体形式为：
-// - 输入将是一个 2 长度元组的向量，
-// 第一个元素是字符串，第二个元素是命令。
-// - 输出元素将是字符串向量。
 
-// 这次没有提示！
-// I AM NOT DONE
+
 
 pub enum Command {
     Uppercase,
