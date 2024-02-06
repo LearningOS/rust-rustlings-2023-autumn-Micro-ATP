@@ -8,13 +8,18 @@ pub fn bigger(a: i32, b: i32) -> i32 {
     // Do not use:
     // - another function call
     // - additional variables
-    if a > b{
-        a
-    }else{
-        b
-    } 
-}
 
+    //     if a > b{
+//         a
+//     }else{
+//         b
+//     } 
+// 12-16行与19-20行等价
+
+    let d: i32 = if a > b { a } else { b };
+    return d;
+
+}
 // Don't mind this for now :)
 #[cfg(test)]
 mod tests {
