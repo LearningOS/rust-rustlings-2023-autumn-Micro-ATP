@@ -13,7 +13,7 @@ fn main() {
 
     // Note the _single_ quotes, these are different from the double quotes
     // you've been seeing around.
-    let my_first_initial = 'C';
+    let my_first_initial = 'C'; //unicode码点
     if my_first_initial.is_alphabetic() {
         println!("Alphabetical!");
     } else if my_first_initial.is_numeric() {
